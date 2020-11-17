@@ -1,5 +1,5 @@
 # dotfiles
-Some of my config files. Maybe this repo will be useful someday? ¯\_(ツ)_/¯
+Some of my config files. 
 
 ### November 11, 2020
 
