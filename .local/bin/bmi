@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+metric = input('Metric or imperial? [m/i]\n')
+if metric.lower() == 'm':
+    weight = float(input('What is your weight in kilograms?\n'))
+    height = float(input('What is your height in meters?\n'))
+    bmi = weight/height**2
+    print('Your BMI is {}'.format(bmi))
+if metric.lower() == 'i':
+    weight = float(input('What is your weight in pounds?\n'))
+    height = float(input('What is your height in inches?\n'))
+    bmi = 703*weight/height**2
+    print('Your BMI is {}'.format(bmi))
+else:
+    print('Please choose Metric or Imperial')

@@ -1,0 +1,7 @@
+#!/bin/sh
+# This script ensures that i3 will spawn a calculator.
+# If R is installed, it will run R, otherwise it will run
+# Python.
+
+
+python -q

@@ -1,0 +1,82 @@
+#! /bin/bash
+########
+# config
+
+# initialise seconds and start with second 1
+sec=0
+# define maximum of dots to display
+maxdots=10
+# initialise count for the dots at the beginning
+startdot=1
+# date when stopwatch was started
+startdate=$(date +%s)
+
+# start the first output with current time
+echo "Stopwatch started: $(date -d @$startdate)"
+
+# while loop to count the seconds
+while [ true ] 
+do
+	# calculate the time based on date
+	let "sec = $(date +%s) - $startdate + 1"
+
+	# display seconds if under 1 minute
+	if [ "$sec" -lt 60 ]
+		# fill time with raw seconds
+		then time="$sec"
+	# switch to minutes if more than 60 seconds
+	else min=$(expr $sec / 60)
+		# calculate the seconds minus the minutes
+		relSec=$(expr $sec - $min \* 60)
+		# fill time with minutes and relative seconds
+		time="$min"'m'" $relSec"
+	fi
+	
+	# define the dots (just for beauty)
+	dotloop=0
+	
+	# reset the variable
+	dotPrint=""
+	
+	# print the dots
+	while [ "$dotloop" -lt "$startdot" ]
+	do
+		# append
+		dotPrint="$dotPrint."
+		# increase
+		let "dotloop = dotloop + 1"
+	done
+	
+	# calculate required spaces
+	actualChars=$(echo -n "$dotPrint" | wc -c)
+	spacesToPrint=$(expr $maxdots - $actualChars)
+	
+	# add the spaces
+	spacesAdded=0
+	
+	# initialise output
+	spaces=""
+	
+	# add the required spaces
+	while [ "$spacesAdded" -lt "$spacesToPrint" ]
+	do
+		# append the white spaces
+		spaces="$spaces "
+		
+		# calculate spaces left
+		let "spacesAdded = $spacesAdded + 1"
+	done
+	
+	# merge dots and spaces
+	dotPrint="$dotPrint$spaces"
+	
+	# print the current time
+	# http://stackoverflow.com/questions/11283625/bash-overwrite-last-terminal-line
+	echo -ne "\e[0K\r   Time: $time"'s'" $dotPrint "
+	
+	# wait a second before continueing
+	sleep 1 || echo "hi"
+	
+	# calculate the next count for the dots
+	startdot=$(if [ "$startdot" -lt "$maxdots" ]; then expr $startdot + 1; else echo "1"; fi)
+done
