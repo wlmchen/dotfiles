@@ -18,12 +18,14 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #202e33 
+background = #59444E4A
+;background = $D9202e33
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #e6c491
-foreground-alt = #dfdfdf
-primary = #ffb52a
+foreground = #ffffff
+foreground-alt = #ffffff 
+;primary = #ffb52a
+primary = #FFCC66
 secondary = #e60053
 alert = #bd2c40
 
@@ -32,7 +34,7 @@ monitor = HDMI-1
 monitor-fallback = eDP-1
 width = 100% 
 height = 27
-;offset-x = 1%
+;offset-x = 1% 
 ;offset-y = 1%
 radius = 6.0
 fixed-center = true 
@@ -44,24 +46,25 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 0
+;border-size = 5 
 border-color = #00000000
 
-padding-left = 0
+padding-left = 2 
 padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = Hack Nerd Font:pixelsize=10;1
+font-1 = Hack Nerd Font:pixelsize=10;1
+font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = i3 xwindow 
+modules-left = i3 bspwm xwindow 
 modules-center = 
-modules-right = filesystem pulseaudio xkeyboard memory cpu eth battery temperature date 
+;modules-right = filesystem pulseaudio xkeyboard cpu memory eth wlan battery temperature date 
+modules-right = weather pulseaudio cpu memory battery temperature date 
 
-tray-position = right
+tray-position = right 
 tray-padding = 2
 ;tray-background = #0063ff
 
@@ -80,6 +83,28 @@ type = internal/xwindow
 label = %title:0:60:...%
 # label = %title%
 
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2  
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+; Separator in between workspaces
+; label-separator = |
+
 [module/xkeyboard]
 type = internal/xkeyboard
 blacklist-0 = num lock
@@ -92,6 +117,18 @@ label-layout = %layout%
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
+
+[module/weather]
+type = custom/script
+interval = 10
+format = <label>
+;format-prefix = ""
+format-prefix-foreground = #3EC13F
+;format-underline = #3EC13F
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+exec = ~/.config/polybar/scripts/weather.sh
+tail = true
 
 [module/filesystem]
 type = internal/fs
@@ -113,28 +150,33 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 3
-label-mode-foreground = #000
+label-mode-padding = 2 
+label-mode-foreground = #ffffff
 label-mode-background = ${colors.primary}
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;
-;ws-icon-3 = 4;
-;ws-icon-4 = 5;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
 ws-icon-default =  
 
 ; focused = Active workspace on focused monitor
 ;label-focused = %index%
-label-focused = %icon%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 3
+label-focused = %index%  
+;label-focused = 
+label-focused-foreground = #FFCC66
+label-focused-background = ${colors.background}
+;label-focused-background = #00FFFFFF
+;label-focused-underline= ${colors.primary}
+label-focused-underline = #00FFFFFF
+label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
 ;label-unfocused = %index%
-label-unfocused = %icon%
-label-unfocused-padding = 3
+label-unfocused = %index%
+;label-unfocused = 
+label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
@@ -145,7 +187,7 @@ label-visible-padding = ${self.label-focused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 3 
+label-urgent-padding = 2 
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -160,7 +202,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = ""
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage_used%%
 
@@ -207,10 +249,10 @@ interval = 5
 date =
 date-alt = " %Y-%m-%d"
 
-time = %H:%M
-time-alt = %H:%M:%S
+time = %I:%M 
+time-alt = %r 
 
-format-prefix = 
+format-prefix =  
 format-prefix-foreground = ${colors.foreground-alt}
 
 label = %date% %time%
@@ -223,7 +265,7 @@ label-volume =
 label-volume-foreground = ${root.foreground}
 
 label-muted = 婢 muted
-label-muted-foreground = #ffffff 
+label-muted-foreground = ${colors.foreground} 
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
