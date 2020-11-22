@@ -1,2 +1,0 @@
-#! /bin/bash
-while true; do echo -ne "`date +%H:%M:%S:%N`\r"; done

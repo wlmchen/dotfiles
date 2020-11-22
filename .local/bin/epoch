@@ -1,2 +1,0 @@
-#! /bin/bash
-while true; do echo -ne "Unix Epoch (Seconds Since Jan 1, 1970): `date +'%s'`\r"; done
