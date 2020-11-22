@@ -52,4 +52,4 @@ fi
 export QT_STYLE_OVERRIDE=gtk2
 export QT_QPA_PLATFORMTHEME=gtk2
 
-exec i3
+exec bspwm 
