@@ -1,107 +1,66 @@
 [options]
-#allow_bold = true
-#audible_bell = false
-#bold_is_bright = true
-#cell_height_scale = 1.0
-#cell_width_scale = 1.0
-#clickable_url = true
-#dynamic_title = true
-font = Hack Nerd Font 11
-#fullscreen = true
+scroll_on_output = false
+scroll_on_keystroke = true
+audible_bell = false
+mouse_autohide = true
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+clickable_url = true
+font = Hack Nerd Font 12
+scrollback_lines = 1000
+search_wrap = true
 #icon_name = terminal
-#mouse_autohide = false
-#scroll_on_output = false
-#scroll_on_keystroke = true
-# Length of the scrollback buffer, 0 disabled the scrollback buffer
-# and setting it to a negative value means "infinite scrollback"
-scrollback_lines = 10000
-#search_wrap = true
-#urgent_on_bell = true
-#hyperlinks = false
-
-# $BROWSER is used by default if set, with xdg-open as a fallback
-#browser = xdg-open
-
+#geometry = 640x480
 # "system", "on" or "off"
-#cursor_blink = system
-
+cursor_blink = system
 # "block", "underline" or "ibeam"
-#cursor_shape = block
-
-# Hide links that are no longer valid in url select overlay mode
-#filter_unmatched_urls = true
-
-# Emit escape sequences for extra modified keys
-#modify_other_keys = false
-
+cursor_shape = block
+# $BROWSER is used by default
+#browser = firefox
 # set size hints for the window
 #size_hints = false
-
-# "off", "left" or "right"
-#scrollbar = off
+# emit escape sequences for other keys modified by Control
+#modify_other_keys = false
 
 [colors]
-# 20% background transparency (requires a compositor)
-background = rgba(63, 63, 63, 0.8)
-[colors]
-# Base16 OceanicNext
-# Author: https://github.com/voronianski/oceanic-next-color-scheme
+# hard contrast: background = #1d2021
+background = #282828
+# soft contrast: background = #32302f
+foreground = #ebdbb2
+foreground_bold = #ebdbb2
 
-foreground          = #C0C5CE
-foreground_bold     = #C0C5CE
-cursor              = #C0C5CE
-cursor_foreground   = #1B2B34
-background          = rgba(27, 43, 52, 0.8)
+# dark0 + gray
+color0 = #282828
+color8 = #928374
 
-# 16 color space
+# neutral_red + bright_red
+color1 = #cc241d
+color9 = #fb4934
 
-# Black, Gray, Silver, White
-color0  = #1B2B34
-color8  = #65737E
-color7  = #C0C5CE
-color15 = #D8DEE9
+# neutral_green + bright_green
+color2 = #98971a
+color10 = #b8bb26
 
-# Red
-color1  = #EC5f67
-color9  = #EC5f67
+# neutral_yellow + bright_yellow
+color3 = #d79921
+color11 = #fabd2f
 
-# Green
-color2  = #99C794
-color10 = #99C794
+# neutral_blue + bright_blue
+color4 = #458588
+color12 = #83a598
 
-# Yellow
-color3  = #FAC863
-color11 = #FAC863
+# neutral_purple + bright_purple
+color5 = #b16286
+color13 = #d3869b
 
-# Blue
-color4  = #6699CC
-color12 = #6699CC
+# neutral_aqua + faded_aqua
+color6 = #689d6a
+color14 = #8ec07c
 
-# Purple
-color5  = #C594C5
-color13 = #C594C5
-
-# Teal
-color6  = #5FB3B3
-color14 = #5FB3B3
-
-# Extra colors
-color16 = #F99157
-color17 = #AB7967
-color18 = #343D46
-color19 = #4F5B66
-color20 = #A7ADBA
-color21 = #CDD3DE
-
-[hints]
-#font = Monospace 12
-#foreground = #dcdccc
-#background = #3f3f3f
-#active_foreground = #e68080
-#active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
+# light4 + light1
+color7 = #a89984
+color15 = #ebdbb2
 
 # vim: ft=dosini cms=#%s
+

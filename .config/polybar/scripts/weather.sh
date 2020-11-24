@@ -1,6 +1,6 @@
 #!/bin/bash
-city=
-api_key=
+city=""
+api_key=""
 lang="en"
 unit="imperial"
 api="http://api.openweathermap.org/data/2.5/weather"
