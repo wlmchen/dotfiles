@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + @space
-	dmenu_run
+	noswallow_dmenu
 
 # file manager
 alt + e
@@ -16,11 +16,11 @@ alt + e
 
 # rofi 
 alt + @space
-	rofi -theme ayu-mirage -show-icons -show drun -width 20 -lines 10
+	rofi -show drun 
 
 # rofi powermenu
 super + @End
-	rofi -show p -modi p:rofi-power-menu -theme ayu-mirage -width 20 -lines 6
+	rofi -show p -modi p:rofi-power-menu 
 
 
 # make sxhkd reload its configuration files:
@@ -72,11 +72,19 @@ super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
 #super + shift + {h,j,k,l}
-#	$HOME/bin/bspwm_smart_move.sh {west,south,north,east}
+#	$HOME/bin/bspwm_smart_move {west,south,north,east}
 
 # focus the node for the given path jump
 super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
+
+# Move current window to a pre-selected space
+super + shift + m
+    bspc node -n last.!automatic
+
+# Rotate tree
+super + shift + {d,a}
+    bspc node @/ -C {forward,backward}
 
 # focus the next/previous window in the current desktop
 super + {_,shift + }c
