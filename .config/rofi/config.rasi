@@ -30,7 +30,10 @@ configuration {
 window {
 	/*padding: 100px 300px 100px 300px; // top, right, bottom, left*/
 	padding:25px;
-	border-radius: 0px;
+	background-color: @bg;
+  	border-color: @fg;
+  	border: 1;
+	border-radius: 5px;
 }
 
 prompt, entry {
