@@ -28,8 +28,8 @@ configuration {
 }
 
 window {
-	/*padding: 100px 300px 100px 300px; // top, right, bottom, left*/
-	padding:25px;
+	padding: 10px 25px 25px 25px; /* top, right, bottom, left*/
+	/*padding:25px;*/
 	background-color: @bg;
   	border-color: @fg;
   	border: 1;

@@ -3,7 +3,13 @@ Some of my config files.
 
 # Pics
 
+## Work
+
 ![Alt text](/pics/scrots/11-26_setup.png?raw=true)
+
+## Rofi
+
+![Alt text](/pics/scrots/11-28_rofi.png?raw=true)
 
 ## Wallpaper
 
