@@ -18,7 +18,7 @@
 
 [colors]
 background = #282828
-background-alt = #282828 
+background-alt = #282828
 ;foreground = ${xrdb:color7:#222}
 foreground = #ebdbb2
 foreground-alt = #A89984
@@ -30,23 +30,23 @@ alert = #bd2c40
 monitor = HDMI-1
 monitor-fallback = eDP-1
 width = 60
-height = 35 
-offset-x = 1% 
+height = 35
+offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
-fixed-center = false 
+fixed-center = false
 
 ;background = ${colors.background}
-background = ${colors.background} 
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
 line-color = #f00
 
-border-size = 7 
+border-size = 7
 border-color = #00000000
 
-padding-left = 2 
+padding-left = 2
 padding-right = 2
 
 module-margin-left = 1
@@ -56,16 +56,16 @@ font-0 = fixed:pixelsize=10;1
 font-1 = Hack Nerd Font:pixelsize=10;1
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = launcher 
-;modules-center = 
-;modules-right = filesystem pulseaudio xkeyboard cpu memory eth wlan battery temperature date 
-;modules-right = weather pulseaudio cpu memory battery temperature date 
+modules-left = launcher
+;modules-center =
+;modules-right = filesystem pulseaudio xkeyboard cpu memory eth wlan battery temperature date
+;modules-right = weather pulseaudio cpu memory battery temperature date
 
-tray-position = none 
-tray-padding = 0 
+tray-position = none
+tray-padding = 0
 ;tray-background = #0063ff
 
-wm-restack = bspwm 
+wm-restack = bspwm
 
 ;override-redirect = true
 
@@ -79,23 +79,23 @@ cursor-scroll = ns-resize
 monitor = HDMI-1
 monitor-fallback = eDP-1
 width = 280
-height = 35 
-offset-x = 76 
+height = 35
+offset-x = 76
 ;offset-y = 1%
 radius = 6.0
-fixed-center = false 
+fixed-center = false
 
 ;background = ${colors.background}
-background = ${colors.background} 
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
 line-color = #f00
 
-border-size = 7 
+border-size = 7
 border-color = #00000000
 
-padding-left = 2 
+padding-left = 2
 padding-right = 2
 
 module-margin-left = 1
@@ -105,16 +105,16 @@ font-0 = fixed:pixelsize=10;1
 font-1 = Hack Nerd Font:pixelsize=10;1
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-modules-left = i3 bspwm 
-modules-center = 
-;modules-right = filesystem pulseaudio xkeyboard cpu memory eth wlan battery temperature date 
-;modules-right = weather pulseaudio cpu memory battery temperature date 
+modules-left = i3 bspwm
+modules-center =
+;modules-right = filesystem pulseaudio xkeyboard cpu memory eth wlan battery temperature date
+;modules-right = weather pulseaudio cpu memory battery temperature date
 
-tray-position = none 
+tray-position = none
 tray-padding = 2
 ;tray-background = #0063ff
 
-wm-restack = bspwm 
+wm-restack = bspwm
 
 ;override-redirect = true
 
@@ -128,23 +128,23 @@ cursor-scroll = ns-resize
 monitor = HDMI-1
 monitor-fallback = eDP-1
 width = 50%
-height = 35 
-offset-x = 49% 
+height = 35
+offset-x = 49%
 ;offset-y = 1%
 radius = 6.0
-fixed-center = false 
+fixed-center = false
 
 ;background = ${colors.background}
-background = ${colors.background} 
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
 line-color = #f00
 
-border-size = 7 
+border-size = 7
 border-color = #00000000
 
-padding-left = 2 
+padding-left = 2
 padding-right = 2
 
 module-margin-left = 1
@@ -154,16 +154,16 @@ font-0 = fixed:pixelsize=10;1
 font-1 = NotoEmoji Nerd Font:pixelsize=10;1
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 
-;modules-left = launcher i3 bspwm xwindow 
-modules-center = xwindow 
-;modules-right = filesystem pulseaudio xkeyboard cpu memory eth wlan battery temperature date 
-modules-right = weather pulseaudio cpu memory battery temperature date 
+;modules-left = launcher i3 bspwm xwindow
+modules-center = xwindow
+;modules-right = filesystem pulseaudio xkeyboard cpu memory eth wlan battery temperature date
+modules-right = weather pulseaudio cpu memory battery temperature date
 
-tray-position = right 
+tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
 
-wm-restack = bspwm 
+wm-restack = bspwm
 
 ;override-redirect = true
 
@@ -185,8 +185,8 @@ type=custom/text
 content = 
 content-font=8
 content-foreground=#1793d1
-content-padding = 2 
-click-left= "rofi -show drun" 
+content-padding = 2
+click-left= "rofi -show drun"
 
 
 
@@ -200,7 +200,7 @@ label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 label-occupied = %index%
-label-occupied-padding = 2  
+label-occupied-padding = 2
 
 label-urgent = %index%!
 label-urgent-background = ${colors.alert}
@@ -258,7 +258,7 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2 
+label-mode-padding = 2
 label-mode-foreground = #ffffff
 label-mode-background = ${colors.primary}
 
@@ -267,11 +267,11 @@ ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
 ws-icon-4 = 5;
-ws-icon-default =  
+ws-icon-default = 
 
 ; focused = Active workspace on focused monitor
 ;label-focused = %index%
-label-focused = %index%  
+label-focused = %index%
 ;label-focused = 
 label-focused-foreground = #FFCC66
 label-focused-background = ${colors.background}
@@ -295,7 +295,7 @@ label-visible-padding = ${self.label-focused-padding}
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
 label-urgent-background = ${colors.alert}
-label-urgent-padding = 2 
+label-urgent-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
@@ -328,7 +328,7 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 =  
+ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
@@ -357,10 +357,10 @@ interval = 5
 date =
 date-alt = " %Y-%m-%d"
 
-time = %I:%M 
-time-alt = %r 
+time = %I:%M
+time-alt = %r
 
-format-prefix =  
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 
 label = %date% %time%
@@ -369,11 +369,11 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <ramp-volume> <label-volume>
-;label-volume =  
+;label-volume =
 label-volume-foreground = ${root.foreground}
 
 label-muted = 婢
-label-muted-foreground = ${colors.foreground} 
+label-muted-foreground = ${colors.foreground}
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -400,7 +400,7 @@ ramp-volume-2 = 
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-full-at = 100 
+full-at = 100
 
 format-charging = <animation-charging> <label-charging>
 format-discharging = <animation-discharging> <label-discharging>
@@ -409,8 +409,8 @@ format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 
 ramp-capacity-0 = 
-ramp-capacity-1 =  
-ramp-capacity-2 =  
+ramp-capacity-1 = 
+ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground-alt}
 
 animation-charging-0 = 
