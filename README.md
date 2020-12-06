@@ -1,6 +1,8 @@
 # dotfiles
 Some of my config files. 
 
+Old rices can be accessed via the legacy branch
+
 # Pics
 
 ## Work
