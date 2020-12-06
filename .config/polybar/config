@@ -186,7 +186,7 @@ content = 
 content-font=8
 content-foreground=#1793d1
 content-padding = 2 
-click-left= "rofi -theme ayu-mirage -show-icons -show drun -width 20 -lines 10"
+click-left= "rofi -show drun" 
 
 
 
