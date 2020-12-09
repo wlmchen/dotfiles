@@ -7,7 +7,7 @@ Old rices can be accessed via the legacy branch
 
 ## Work
 
-![Alt text](/pics/scrots/12-9_setup.png?raw=true)
+![Alt text](/pics/scrots/12_9-setup.png?raw=true)
 
 ## Rofi
 
