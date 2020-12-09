@@ -7,7 +7,7 @@ Old rices can be accessed via the legacy branch
 
 ## Work
 
-![Alt text](/pics/scrots/11-26_setup.png?raw=true)
+![Alt text](/pics/scrots/12-9_setup.png?raw=true)
 
 ## Rofi
 
@@ -21,7 +21,7 @@ Old rices can be accessed via the legacy branch
 
 | Function | Program |
 | :--- | :--- |
-| Distro | [Arch](http://www.archlinux.org/) |
+| Distro | [Artix](http://www.artixlinux.org/) |
 | Window Manager | [bspwm](http://github.com/baskerville/bspwm) |
 | Bar | [polybar](https://github.com/polybar/polybar) |
 | Launcher | [rofi](http://github.com/davatorium/rofi) |
@@ -31,5 +31,5 @@ Old rices can be accessed via the legacy branch
 | Colorscheme | [gruvbox](https://github.com/morhetz/gruvbox) |
 | Editor Font | [Hack Nerd Font](http://github.com/ryanoasis/nerd-fonts) |
 | Shell | [fish](http://fishshell.com) |
-| Term | [termite](http://github.com/thestinger/termite) |
+| Term | [my custom build of st](http://github.com/pryme-svg/st) |
 

@@ -8,8 +8,8 @@ xsetroot -cursor_name left_ptr &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 sleep 5;  xmodmap -e "keysym Alt_R = Multi_key" &
 xss-lock -- /usr/bin/betterlockscreen -l blur &
-st --class scratchterm &
-st --class dropdowncalc -e "python3" &
+st -c scratchterm &
+st -c dropdowncalc -e "python3" &
 monitorconfig &
 picom --blur-method dual_kawase --experimental-backends &
 

@@ -1,6 +1,6 @@
 #!/bin/bash
-city=""
-api_key=""
+city="Dublin"
+api_key="121047f2ef97231bfe017307c9a0f716"
 lang="en"
 unit="imperial"
 api="http://api.openweathermap.org/data/2.5/weather"
