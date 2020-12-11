@@ -1,0 +1,27 @@
+#!/bin/sh
+
+twoscreen() {
+	monitor=$(echo "$active" | dmenu -i -p "Select display to configure workspaces:")
+	workspaces=$(echo "1 2 3 4 5 6 7 8 9 10" | dmenu -i -p "What workspaces do you want on that display?")
+	if [ -z "$workspaces"]
+	then
+		exit
+	fi
+	bspc monitor $monitor -d $workspaces
+}
+
+onescreen() {
+	workspaces=$(echo "1 2 3 4 5 6 7 8 9 10" | dmenu -i -p "What workspaces do you want?")
+	bspc monitor -d $workspaces
+}
+
+# Get all possible displays
+active=$(xrandr --listactivemonitors | grep -v Monitors | grep -oE '[^ ]+$')
+
+# Get all connected screens.
+screens=$(echo "$allposs" | awk '/ connected/ {print $1}')
+
+[ "$(echo "$screens" | wc -l)" -lt 2 ] &&
+	{ onescreen ;  exit ;}
+
+twoscreen
