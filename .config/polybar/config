@@ -1,22 +1,15 @@
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/polybar/polybar
-;
-;   The README contains a lot of information
-;
-;==========================================================
-
 [colors]
+yellow = #ffd580
+orange = #fe8019
+blue = #73d0ff
+green = #bae67e
+red = #ff3333
+bg = #1f2430
+fg = #bfbab0
+icons = #bae67e
+cyan = #95e6cb
+text = ${xrdb:color2}
+unfocus = ${xrdb:color1}
 background = #282828
 background-alt = #282828
 ;foreground = ${xrdb:color7:#222}
@@ -26,172 +19,137 @@ primary = #A89984
 secondary = #e60053
 alert = #bd2c40
 
-[bar/launcher]
-monitor = HDMI-1
-monitor-fallback = eDP-1
-width = 55 
-height = 35
-offset-x = 1%
-;offset-y = 1%
-radius = 6.0
-fixed-center = false
+[bar/mybar]
+monitor = HDMI1
+monitor-fallback = eDP1
 
-;background = ${colors.background}
+override-redirect = false
+
+; Put the bar at the bottom of the screen
+bottom = false
+
+; Prefer fixed center position for the `modules-center` block
+fixed-center = true
+
+width = 100%
+height = 35
+
+offset-x =
+offset-y =
+enable-ipc = true
+; Background ARGB color (e.g. #f00, #ff992a, #ddff1023)
 background = ${colors.background}
+
+; Foreground ARGB color (e.g. #f00, #ff992a, #ddff1023)
 foreground = ${colors.foreground}
 
 line-size = 3
-line-color = #f00
+line-color = #fff
 
-border-size = 7
-border-color = #00000000
+; Number of spaces to add at the beginning/end of the bar
+; Individual side values can be defined using:
+;   padding-{left,right}
+padding-right = 1
+padding-left = 3
 
-padding-left = 1 
-padding-right = 2
+; Number of spaces to add before/after each module
+; Individual side values can be defined using:
+;   module-margin-{left,right}
+module-margin = 2
 
-module-margin-left = 0 
-module-margin-right = 2
+font-0 = DejaVu Sans:medium:size=9;2
+font-1 = Hack Nerd Font:size=9;2
+font-2 = Iosevka Nerd Font:medium:size=9:antialias=true;2
 
-font-0 = UbuntuMono Nerd Font:pixelsize=10;1
-font-1 = Hack Nerd Font:pixelsize=10;1
+; Add module mpd for artist - title info
+modules-left = launcher bspwm mpd
+modules-center = title
+modules-right = weather pulseaudio temperature battery memory cpu date
 
-modules-left = launcher
-;modules-center =
-;modules-right = filesystem pulseaudio xkeyboard cpu memory eth wlan battery temperature date
-;modules-right = weather pulseaudio cpu memory battery temperature date
+; The separator will be inserted between the output of each module
+; separator = |
+separator-foreground = ${colors.icons}
 
-tray-position = none
-tray-padding = 0
-;tray-background = #0063ff
-
-wm-restack = bspwm
-
-;override-redirect = true
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-[bar/bspwm]
-monitor = HDMI-1
-monitor-fallback = eDP-1
-width = 280
-height = 35
-offset-x = 76
-;offset-y = 1%
-radius = 6.0
-fixed-center = false
-
-;background = ${colors.background}
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-border-size = 7
-border-color = #00000000
-
-padding-left = 2
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 2
-
-font-0 = fixed:pixelsize=10;1
-font-1 = Hack Nerd Font:pixelsize=10;1
-font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
-
-modules-left = i3 bspwm
-modules-center =
-;modules-right = filesystem pulseaudio xkeyboard cpu memory eth wlan battery temperature date
-;modules-right = weather pulseaudio cpu memory battery temperature date
-
-tray-position = none
-tray-padding = 2
-;tray-background = #0063ff
-
-wm-restack = bspwm
-
-;override-redirect = true
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-[bar/example]
-monitor = HDMI-1
-monitor-fallback = eDP-1
-width = 50%
-height = 35
-offset-x = 49%
-;offset-y = 1%
-radius = 6.0
-fixed-center = false
-
-;background = ${colors.background}
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 3
-line-color = #f00
-
-border-size = 7
-border-color = #00000000
-
-padding-left = 0 
-padding-right = 0 
-
-module-margin-left = 0 
-module-margin-right = 2
-
-font-0 = fixed:pixelsize=10;1
-font-1 = NotoEmoji Nerd Font:pixelsize=10;1
-font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
-
-;modules-left = launcher i3 bspwm xwindow
-modules-center = xwindow
-;modules-right = filesystem pulseaudio xkeyboard cpu memory eth wlan battery temperature date
-;modules-right = pulseaudio battery date
-modules-right = weather pulseaudio cpu memory battery temperature date
-;modules-right = weather pulseaudio date
-
+; If true, the bar will not shift its
+tray-detached = false
 
 tray-position = right
 tray-padding = 2
-;tray-background = #0063ff
-
 wm-restack = bspwm
 
-;override-redirect = true
+[module/stopwatch]
+type = custom/script
 
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+exec = ~/.config/polybar/scripts/polybar-stopwatch.sh tail
+tail = true
+format-foreground = ${colors.green}
+click-left = ~/.config/polybar/scripts/polybar-stopwatch.sh new
+click-right = ~/.config/polybar/scripts/polybar-stopwatch.sh cancel ; ~/.config/polybar/scripts/polybar-stopwatch.sh display
+format = 祥 <label>
 
-cursor-click = pointer
-cursor-scroll = ns-resize
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP1
+full-at = 100
 
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
-format-padding = 2
+format-charging = <animation-charging> <label-charging>
+format-discharging = <animation-discharging> <label-discharging>
 
-# label = %title%
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.green}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capactiy-4 = 
+ramp-capacity-foreground = ${colors.green}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.green}
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-foreground = ${colors.green}
+animation-discharging-framerate = 750
+label-discharging-foreground = ${colors.green}
+label-charging-foreground = ${colors.green}
+label-full-foreground = ${colors.green}
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+
+label = %temperature-c%
+label-foreground = ${colors.cyan}
+label-warn = %temperature-c%
+label-warn-foreground = ${colors.red}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.blue}
 
 [module/launcher]
 type=custom/text
-content = 
+content = 
 content-font= 3
-content-foreground=#1793d1
+content-foreground=#6E56AF
 content-padding = 1
 click-left= "rofi -show drun"
-
-
-
 
 [module/bspwm]
 type = internal/bspwm
@@ -215,18 +173,145 @@ label-empty-padding = 2
 ; Separator in between workspaces
 ; label-separator = |
 
-[module/xkeyboard]
-type = internal/xkeyboard
-blacklist-0 = num lock
+[module/date]
+type = internal/date
 
-format-prefix = "  "
-format-prefix-foreground = ${colors.foreground-alt}
+; Seconds to sleep between updates
+interval = 1.0
 
-label-layout = %layout%
+; See "http://en.cppreference.com/w/cpp/io/manip/put_time" for details on how to format the date string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+date = %{T6}  %{T-}%d/%a
 
-label-indicator-padding = 2
-label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
+; Optional time format
+time = %H:%M
+
+; if `date-alt` or `time-alt` is defined, clicking
+; the module will toggle between formats
+date-alt = %a, %d %b %y
+time-alt = %H:%M:%S
+
+label = %date% %time%
+label-font = 0
+label-foreground = ${colors.green}
+
+[module/wireless-network]
+type = internal/network
+interface = wlan0
+
+label-connected = %essid%
+format-connected = <ramp-signal>
+label-connected-foreground = #82b414
+
+format-disconnected = <label-disconnected>
+label-disconnected = Not connected
+label-disconnected-foreground = #f92672
+label-disconnected-background = #99000000
+
+ramp-signal-foreground = #82b414
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-5 = 
+
+[module/cpu]
+type = internal/cpu
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+
+label = %{T7}%{T-}%{T5} %percentage:2%%%{T-}
+
+label-foreground = ${colors.cyan}
+
+[module/memory]
+type = internal/memory
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 0.5
+format = <label>
+
+; Available tokens:
+;   %percentage_used% (default)
+;   %percentage_free%
+;   %gb_used%
+;   %gb_free%
+;   %gb_total%
+;   %mb_used%
+;   %mb_free%
+;   %mb_total%
+;   %percentage_swap_used%
+;   %percentage_swap_free%
+;   %mb_swap_total%
+;   %mb_swap_free%
+;   %mb_swap_used%
+;   %gb_swap_total%
+;   %gb_swap_free%
+;   %gb_swap_used%
+
+label = %{T4} %{T-}%{T5} %gb_used%%{T-}
+
+label-foreground = ${colors.cyan}
+
+[module/decor-glyph]
+type = custom/text
+content-foreground = #465457
+margin = 0
+
+[module/sep]
+inherit = module/decor-glyph
+content = "/"
+
+[module/mpd]
+type = internal/mpd
+
+host = 0.0.0.0
+port = 6600
+
+interval = 1
+format-online = <icon-prev>  <toggle>  <icon-next>  <label-time>  <label-song>
+format-online-background = ${colors.background}
+format-online-foreground = ${colors.yellow}
+#format-online-padding = 20
+
+label-song =  "%{T8}%artist% - %title%"%{T-}
+label-song-maxlen = 75
+label-song-ellipsis = true
+
+label-offline = "MPD is offline"
+icon-play = %{T2}奈%{T-}
+icon-pause = %{T2}%{T-}
+icon-stop = %{T2}%{T-}
+icon-prev = %{T2}ﭣ%{T-}
+icon-next = %{T2}ﭡ%{T-}
+
+[module/sps]
+type = custom/text
+content = " "
+content-padding = 0
+
+[module/network]
+type = internal/network
+interface = wlan0
+;enp0s29u1u2
+interval = 1.0
+label-connected = "%{T4}龍%{T-}%{T5} %downspeed% | %upspeed%%{T-}"
+label-disconnected = "%{T5}0/0%{T-}"
+label-connected-background = ${colors.background}
+label-connected-foreground = ${colors.blue}
+label-disconnected-foreground = ${colors.red}
+
+[module/dunst]
+type = custom/ipc
+initial = 1
+format-foreground = ${colors.yellow}
+
+hook-0 = echo "%{A1:notify-send "DUNST_COMMAND_PAUSE" && polybar-msg hook dunst 2:} %{A}" &
+hook-1 = echo "%{A1:notify-send "DUNST_COMMAND_RESUME" && polybar-msg hook dunst 1:} %{A}" &
 
 [module/weather]
 type = custom/script
@@ -235,144 +320,37 @@ format = <label>
 ;format-prefix = ""
 format-prefix-foreground = #3EC13F
 ;format-underline = #3EC13F
-format-foreground = ${colors.foreground}
+format-foreground = ${colors.cyan}
 format-background = ${colors.background}
 exec = ~/.config/polybar/scripts/weather.sh
 tail = true
 
-[module/filesystem]
-type = internal/fs
-interval = 25
+[module/title]
+type = internal/xwindow
+; Available tags:
+;   <label> (default)
+format = <label>
+format-background = ${colors.background}
+format-foreground = ${colors.green}
+format-padding = 4
 
-mount-0 = /
+; Available tokens:
+;   %title%
+; Default: %title%
+;label = "%{T4}类 %{T-}%{T5} %title%%{T-}"
+label = %title%
+label-maxlen = 90
 
-# label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-mounted =   %mountpoint% : %used% | %total%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
+; Used instead of label when there is no window title
+; Available tokens:
+;   None
 
-[module/i3]
-type = internal/i3
-format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-; Only show workspaces on the same output as the bar
-;pin-workspaces = true
-
-label-mode-padding = 2
-label-mode-foreground = #ffffff
-label-mode-background = ${colors.primary}
-
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-default = 
-
-; focused = Active workspace on focused monitor
-;label-focused = %index%
-label-focused = %index%
-;label-focused = 
-label-focused-foreground = #FFCC66
-label-focused-background = ${colors.background}
-;label-focused-background = #00FFFFFF
-;label-focused-underline= ${colors.primary}
-label-focused-underline = #00FFFFFF
-label-focused-padding = 2
-
-; unfocused = Inactive workspace on any monitor
-;label-unfocused = %index%
-label-unfocused = %index%
-;label-unfocused = 
-label-unfocused-padding = 2
-
-; visible = Active workspace on unfocused monitor
-label-visible = %index%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
-
-; urgent = Workspace with urgency hint set
-label-urgent = %index%
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-; Separator in between workspaces
-; label-separator = |
-
-[module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-label = %percentage:2%%
-
-[module/memory]
-type = internal/memory
-interval = 2
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-label = %percentage_used%%
-
-[module/wlan]
-type = internal/network
-interface = wlo1
-interval = 3.0
-
-format-connected = <ramp-signal> <label-connected>
-label-connected = %essid%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
-
-[module/eth]
-type = internal/network
-interface = eno1
-interval = 3.0
-
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
-
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
-
-[module/date]
-type = internal/date
-interval = 5
-
-date =
-date-alt = " %Y-%m-%d"
-
-time = %I:%M
-time-alt = %r
-
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-
-label = %date% %time%
-
-[module/pulseaudio]
+[module/pulseaudio1]
 type = internal/pulseaudio
 
 format-volume = <ramp-volume> <label-volume>
 ;label-volume =
-label-volume-foreground = ${root.foreground}
+label-volume-foreground = ${colors.yellow}
 
 label-muted = 婢
 label-muted-foreground = ${colors.foreground}
@@ -394,72 +372,60 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-ramp-volume-0 = 
-ramp-volume-1 = 墳
-ramp-volume-2 =  
+ramp-volume-0 =
+ramp-volume-1 =
+ramp-volume-2 =
 
-[module/battery]
-type = internal/battery
-battery = BAT0
-adapter = ADP1
-full-at = 100
+[module/pulseaudio]
+type = internal/pulseaudio
 
-format-charging = <animation-charging> <label-charging>
-format-discharging = <animation-discharging> <label-discharging>
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+; sink = alsa_output.pci-0000_12_00.3.analog-stereo
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capactiy-4 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-foreground = ${colors.foreground-alt}
-animation-charging-framerate = 750
+; Available tags:
+;   <label-volume> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-volume = <ramp-volume> <label-volume>
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
+label-volume-foreground = ${colors.yellow}
+; Available tags:
+;   <label-muted> (default)
+;   <ramp-volume>
+;   <bar-volume>
+format-muted = <label-muted>
 
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
+; Available tokens:
+;   %percentage% (default)
+;   %decibels% (unreleased)
+;label-volume = %percentage%%
 
-format = <ramp> <label>
-format-warn = <ramp> <label-warn>
+; Available tokens:
+;   %percentage% (default)
+;   %decibels% (unreleased)
+label-muted = %{T1}  muted%{T-}
+label-muted-foreground = #666
 
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
+; Only applies if <ramp-volume> is used
+ramp-volume-0 = %{T4} %{T-}
+ramp-volume-1 = %{T4}墳%{T-}
+ramp-volume-2 = %{T4} %{T-}
+ramp-volume-foreground = ${colors.yellow}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+; Right and Middle click (unreleased)
+click-right = pavucontrol &
+; click-middle =
 
-[settings]
-screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = false
-
-[global/wm]
-margin-top = 5
-margin-bottom = 5
+;[settings]
+;pseudo-transparency = true
 
 ; vim:ft=dosini
