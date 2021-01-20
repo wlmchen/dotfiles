@@ -1,13 +1,14 @@
 configuration {
-	modi: "drun,windowcd,window";
+	modi: "drun";
 	width: 30;
 	lines: 12;
 	show-icons: true;
 	font: "Hack Nerd Font 13";
-	terminal: "termite";
+	terminal: "st";
 	disable-history: true;
 	sidebar-mode: false;
 	tokenize: true;
+  	display-drun:"apps";
 	m: "-5";
 	line-margin: 2;
 	line-padding: 1;
@@ -33,7 +34,7 @@ window {
 	background-color: @bg;
   	border-color: @fg;
   	border: 1;
-	border-radius: 5px;
+	border-radius: 0px;
 }
 
 prompt, entry {

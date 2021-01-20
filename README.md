@@ -1,27 +1,18 @@
 # dotfiles
+
 Some of my config files. 
 
 Old rices can be accessed via the legacy branch
 
-# Pics
+# Pic
 
-## Work
-
-![Alt text](/pics/scrots/12_9-setup.png?raw=true)
-
-## Rofi
-
-![Alt text](/pics/scrots/11-28_rofi.png?raw=true)
-
-## Wallpaper
-
-![Wallpaper](https://i.imgur.com/wQIgQr3.jpeg)
+![Picture of Setup](/pics/scrots/1-19-setup.png?raw=true)
 
 ## Programs I use
 
 | Function | Program |
 | :--- | :--- |
-| Distro | [Artix](http://www.artixlinux.org/) |
+| Distro | [Gentoo](http://www.gentoo.org/) |
 | Window Manager | [bspwm](http://github.com/baskerville/bspwm) |
 | Bar | [polybar](https://github.com/polybar/polybar) |
 | Launcher | [rofi](http://github.com/davatorium/rofi) |
@@ -30,6 +21,6 @@ Old rices can be accessed via the legacy branch
 | Icons | [paper](http://snwh.org/paper) |
 | Colorscheme | [gruvbox](https://github.com/morhetz/gruvbox) |
 | Editor Font | [Hack Nerd Font](http://github.com/ryanoasis/nerd-fonts) |
-| Shell | [fish](http://fishshell.com) |
+| Shell | [bash](https://www.gnu.org/software/bash/) |
 | Term | [my custom build of st](http://github.com/pryme-svg/st) |
 

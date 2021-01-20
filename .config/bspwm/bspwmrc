@@ -14,7 +14,7 @@ xmodmap -e "keysym Alt_R = Multi_key" &
 st -c scratchterm &
 st -c dropdowncalc -e "python3" &
 monitorconfig &
-picom &
+xcompmgr &
 
 bspc rule -a dropdowncalc sticky=on state=floating hidden=on center=true
 bspc rule -a scratchterm sticky=on state=floating hidden=on center=true
@@ -47,8 +47,8 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
+# bspc rule -a Gimp desktop='^8' state=floating follow=on
+# bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off

@@ -2,17 +2,30 @@
 # wm independent hotkeys
 #
 
+super + shift + y
+	dmenyt
+
 # terminal emulator
 super + Return
-	st	
+	st
 
 # emojis	
 super + e
-	dmenu-emoji.sh
+	dmenuemoji
+
+super + shift + e
+	dmenu-edit-configs
 
 super + w
 	firefox
 
+# monitorselect
+alt + grave
+	displayselect
+
+# workspace select
+#shift + grave
+#	bspworkspace
 # program launcher
 super + @space
 	dmenu_run
@@ -165,8 +178,6 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-
-
 # volume
 XF86AudioRaiseVolume
 	pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -179,7 +190,6 @@ XF86AudioMute
 
 XF86AudioMicMute
 	pactl set-source-mute @DEFAULT_SOURCE@ toggle
-
 
 # brightness keys
 XF86MonBrightnessUp
@@ -195,3 +205,6 @@ Print
 # select screen
 shift + @Print
 	scrot -z -f -s -e 'xclip -selection c -t image/png < $f && mv $f ~/Pictures/screenshots' && notify-send 'Screenshot Captured' --icon=/usr/share/icons/Paper/512x512/devices/camera-photo.png
+
+#shift + @Print
+#	sharenix-section
