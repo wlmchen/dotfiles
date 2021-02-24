@@ -1,0 +1,10 @@
+#!/bin/sh
+
+choice=$(\ls -1 ~/Pictures/wallpapers | dmenu)
+
+if [ -z $choice ]; then
+    :
+else
+    hsetroot -center ~/Pictures/wallpapers/$choice
+    xsetroot -cursor_name left_ptr
+fi
