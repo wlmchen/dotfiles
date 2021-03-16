@@ -1,6 +1,6 @@
 #!/bin/bash
-city="Dublin"
-api_key="121047f2ef97231bfe017307c9a0f716"
+city=""
+api_key=""
 lang="en"
 unit="imperial"
 api="http://api.openweathermap.org/data/2.5/weather"
@@ -26,4 +26,4 @@ case $icons in
 esac
 
 echo $icon\  $weather, $temp"°F"
-sleep 5
+sleep 120

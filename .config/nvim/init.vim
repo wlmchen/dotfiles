@@ -16,8 +16,8 @@ call plug#end()
 au BufRead,BufNewFile *.todo set filetype=todo
 
 " map caps to esc
-au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+"au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+"au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
 autocmd vimenter * ++nested colorscheme gruvbox
 " let g:airline_theme='base16_gruvbox_dark_hard'
@@ -25,6 +25,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:gitgutter_set_sign_backgrounds = 1
 
 filetype plugin indent on
+
+set ignorecase
+set smartcase
 
 set title
 

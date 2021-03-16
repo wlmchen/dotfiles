@@ -19,9 +19,9 @@ primary = #A89984
 secondary = #e60053
 alert = #bd2c40
 
-[bar/mybar]
-monitor = HDMI1
-monitor-fallback = eDP1
+[bar/HDMI2]
+monitor = HDMI2
+;monitor-fallback = eDP1
 
 override-redirect = false
 
@@ -64,7 +64,7 @@ font-2 = Iosevka Nerd Font:medium:size=9:antialias=true;2
 ; Add module mpd for artist - title info
 modules-left = launcher bspwm mpd
 modules-center = title
-modules-right = weather pulseaudio temperature battery memory cpu date
+modules-right = weather pulseaudio temperature battery bat1 memory cpu system-cpu-frequency date
 
 ; The separator will be inserted between the output of each module
 ; separator = |
@@ -77,24 +77,156 @@ tray-position = right
 tray-padding = 2
 wm-restack = bspwm
 
-[module/stopwatch]
-type = custom/script
 
-exec = ~/.config/polybar/scripts/polybar-stopwatch.sh tail
-tail = true
-format-foreground = ${colors.green}
-click-left = ~/.config/polybar/scripts/polybar-stopwatch.sh new
-click-right = ~/.config/polybar/scripts/polybar-stopwatch.sh cancel ; ~/.config/polybar/scripts/polybar-stopwatch.sh display
-format = 祥 <label>
+[bar/HDMI1]
+monitor = HDMI1
+;monitor-fallback = eDP1
+
+override-redirect = false
+
+; Put the bar at the bottom of the screen
+bottom = false
+
+; Prefer fixed center position for the `modules-center` block
+fixed-center = true
+
+width = 100%
+height = 35
+
+offset-x =
+offset-y =
+enable-ipc = true
+; Background ARGB color (e.g. #f00, #ff992a, #ddff1023)
+background = ${colors.background}
+
+; Foreground ARGB color (e.g. #f00, #ff992a, #ddff1023)
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #fff
+
+; Number of spaces to add at the beginning/end of the bar
+; Individual side values can be defined using:
+;   padding-{left,right}
+padding-right = 1
+padding-left = 3
+
+; Number of spaces to add before/after each module
+; Individual side values can be defined using:
+;   module-margin-{left,right}
+module-margin = 2
+
+font-0 = DejaVu Sans:medium:size=9;2
+font-1 = Hack Nerd Font:size=9;2
+font-2 = Iosevka Nerd Font:medium:size=9:antialias=true;2
+
+; Add module mpd for artist - title info
+modules-left = launcher bspwm mpd
+modules-center = title
+modules-right = weather pulseaudio temperature battery bat1 memory cpu system-cpu-frequency date
+
+; The separator will be inserted between the output of each module
+; separator = |
+separator-foreground = ${colors.icons}
+
+; If true, the bar will not shift its
+tray-detached = false
+
+tray-position = right
+tray-padding = 2
+wm-restack = bspwm
+
+[bar/eDP1]
+monitor = eDP1
+
+override-redirect = false
+
+; Put the bar at the bottom of the screen
+bottom = false
+
+; Prefer fixed center position for the `modules-center` block
+fixed-center = true
+
+width = 100%
+height = 35
+
+offset-x =
+offset-y =
+enable-ipc = true
+; Background ARGB color (e.g. #f00, #ff992a, #ddff1023)
+background = ${colors.background}
+
+; Foreground ARGB color (e.g. #f00, #ff992a, #ddff1023)
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #fff
+
+; Number of spaces to add at the beginning/end of the bar
+; Individual side values can be defined using:
+;   padding-{left,right}
+padding-right = 1
+padding-left = 3
+
+; Number of spaces to add before/after each module
+; Individual side values can be defined using:
+;   module-margin-{left,right}
+module-margin = 2
+
+font-0 = DejaVu Sans:medium:size=9;2
+font-1 = Hack Nerd Font:size=9;2
+font-2 = Iosevka Nerd Font:medium:size=9:antialias=true;2
+
+; Add module mpd for artist - title info
+modules-left = launcher bspwm
+modules-center = title
+modules-right = weather pulseaudio temperature battery bat1 memory cpu system-cpu-frequency date
+
+; The separator will be inserted between the output of each module
+; separator = |
+separator-foreground = ${colors.icons}
+
+; If true, the bar will not shift its
+tray-detached = false
+
+tray-position = right
+tray-padding = 2
+wm-restack = bspwm
+
+
+[module/system-cpu-frequency]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-cpu-frequency.sh
+interval = 10
+format = <label>
+;format-prefix = ";"
+format-prefix-foreground = #3EC13F
+format-offset = -12
+format-foreground = ${colors.cyan}
+format-background = ${colors.background}
 
 [module/battery]
 type = internal/battery
 battery = BAT0
-adapter = ADP1
+adapter = AC
 full-at = 100
 
-format-charging = <animation-charging> <label-charging>
-format-discharging = <animation-discharging> <label-discharging>
+;format-charging = <animation-charging> <label-charging>
+;format-discharging = <animation-discharging> <label-discharging>
+
+label-charging = ↑ %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = ↓ %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+label-full = Full
 
 format-full-prefix = " "
 format-full-prefix-foreground = ${colors.green}
@@ -124,6 +256,59 @@ animation-discharging-framerate = 750
 label-discharging-foreground = ${colors.green}
 label-charging-foreground = ${colors.green}
 label-full-foreground = ${colors.green}
+
+[module/bat1]
+type = internal/battery
+battery = BAT1
+adapter = AC
+full-at = 100
+
+;format-charging = <animation-charging> <label-charging>
+;format-discharging = <animation-discharging> <label-discharging>
+
+label-charging = ↑ %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = ↓ %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+label-full = Full
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.green}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capactiy-4 = 
+ramp-capacity-foreground = ${colors.green}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.green}
+animation-charging-framerate = 750
+
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+animation-discharging-foreground = ${colors.green}
+animation-discharging-framerate = 750
+label-discharging-foreground = ${colors.green}
+label-charging-foreground = ${colors.green}
+label-full-foreground = ${colors.green}
+
 
 [module/temperature]
 type = internal/temperature
@@ -221,7 +406,7 @@ type = internal/cpu
 
 ; Seconds to sleep between updates
 ; Default: 1
-interval = 0.5
+interval = 3
 
 label = %{T7}%{T-}%{T5} %percentage:2%%%{T-}
 
@@ -262,10 +447,6 @@ type = custom/text
 content-foreground = #465457
 margin = 0
 
-[module/sep]
-inherit = module/decor-glyph
-content = "/"
-
 [module/mpd]
 type = internal/mpd
 
@@ -288,11 +469,6 @@ icon-pause = %{T2}%{T-}
 icon-stop = %{T2}%{T-}
 icon-prev = %{T2}ﭣ%{T-}
 icon-next = %{T2}ﭡ%{T-}
-
-[module/sps]
-type = custom/text
-content = " "
-content-padding = 0
 
 [module/network]
 type = internal/network

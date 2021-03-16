@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Gruvbox
+Comment=gruvbox is life
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+Name=Gruvbox
+GtkTheme=Gruvbox
+IconTheme=Gruvbox
+MetacityTheme=Gruvbox
