@@ -206,5 +206,5 @@ Print
 shift + @Print
 	scrot -z -f -s -e 'xclip -selection c -t image/png < $f && mv $f ~/Pictures/screenshots' && notify-send 'Screenshot Captured' --icon=/usr/share/icons/Paper/512x512/devices/camera-photo.png
 
-#shift + @Print
-#	sharenix-section
+super + d
+    displayselect
