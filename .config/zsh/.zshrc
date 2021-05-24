@@ -75,10 +75,7 @@ alias sysus="systemctl suspend"
 alias py="python"
 alias h="history | cut -c 8- | sort | uniq | fzf | tr '\\n' ' ' | xclip -selection c"
 alias nf="neofetch"
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME' 
-
-# open files with vim
-alias -s {md,py}=nvim
+alias config='/usr/bin/git --git-dir=$HOME/repos/dots/ --work-tree=$HOME' 
 
 export EDITOR=nvim
 export TERMINAL=st
@@ -93,4 +90,9 @@ export LESS_TERMCAP_se="$(printf '%b' '[0m')"
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+# source pluginz
+for plugin in $(find ~/.config/zsh/plugins -name '*.plugin.zsh'); do
+    source $plugin
+done
+

@@ -376,7 +376,7 @@ time = %H:%M
 date-alt = %a, %d %b %y
 time-alt = %H:%M:%S
 
-label = %date% %time%
+label = %{A3:popup-calendar.sh --popup:} %date% %time% %{A}
 label-font = 0
 label-foreground = ${colors.green}
 
