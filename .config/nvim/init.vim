@@ -10,7 +10,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'ap/vim-css-color'
+Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 let g:NERDTreeWinSize=25
@@ -22,7 +25,7 @@ au BufRead,BufNewFile *.todo set filetype=todo
 "au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 "au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
-autocmd vimenter * ++nested colorscheme gruvbox
+autocmd vimenter * ++nested colorscheme gruvbox-material
 " let g:airline_theme='base16_gruvbox_dark_hard'
 let g:airline#extensions#tabline#enabled = 1
 let g:gitgutter_set_sign_backgrounds = 1
@@ -41,11 +44,11 @@ set tabstop=4
 " when indenting with '>', use 4 spaces width
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
-set expandtab
+set noexpandtab
 
 augroup restore_cursor_shape
-  autocmd!
-  au VimLeave * set guicursor=a:ver10-blinkoff0
+	autocmd!
+	au VimLeave * set guicursor=a:ver10-blinkoff0
 augroup END
 
 map <leader>t :NERDTreeToggle<CR>
@@ -74,9 +77,9 @@ nnoremap k gk
 set number relativenumber
 
 augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
 
 set linebreak
@@ -86,7 +89,7 @@ set clipboard=unnamedplus
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
 
 " unicode symbols
@@ -111,3 +114,11 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+
+
+source ~/.config/nvim/comments.vim
+map <C-a> :call Comment()<CR>
+map <C-b> :call Uncomment()<CR>
+map \--# :call UncommentBlock()<CR>
+

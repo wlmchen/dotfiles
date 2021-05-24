@@ -4,6 +4,8 @@ SAVEHIST=1000000
 
 #bindkey -v # vi mode
 
+unsetopt nomatch # https globbing
+
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 compinit
@@ -27,7 +29,23 @@ bindkey  "^[[4~"   end-of-line
 setopt interactivecomments
 
 bindkey -v
+
+bindkey '^R' history-incremental-search-backward # reverse-i-search
+
 export KEYTIMEOUT=1
+
+function cd() {
+  if [[ -d ./venv ]] ; then
+    deactivate
+  fi
+
+  builtin cd $1
+
+  if [[ -d ./venv ]] ; then
+    . ./venv/bin/activate
+  fi
+}
+
 
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")';
 
@@ -75,22 +93,13 @@ alias sysus="systemctl suspend"
 alias py="python"
 alias h="history | cut -c 8- | sort | uniq | fzf | tr '\\n' ' ' | xclip -selection c"
 alias nf="neofetch"
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME' 
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias delpycache='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
 
 # open files with vim
-alias -s {md,py}=nvim
+#alias -s {md,py}=nvim
 
-export EDITOR=nvim
-export TERMINAL=st
-export BROWSER=firefox
-
-
-export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
-export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
-export LESS_TERMCAP_me="$(printf '%b' '[0m')"
-export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
-export LESS_TERMCAP_se="$(printf '%b' '[0m')"
-export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
-export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
-
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+# source pluginz
+for plugin in $(find ~/.config/zsh/plugins -name '*.plugin.zsh'); do
+    source $plugin
+done
