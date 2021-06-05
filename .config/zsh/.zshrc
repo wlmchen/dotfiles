@@ -27,6 +27,9 @@ bindkey  "^[[4~"   end-of-line
 setopt interactivecomments
 
 bindkey -v
+
+bindkey '^R' history-incremental-search-backward # revers-i search
+
 export KEYTIMEOUT=1
 
 zstyle -e ':completion:*:default' list-colors 'reply=("${PREFIX:+=(#bi)($PREFIX:t)(?)*==34=34}:${(s.:.)LS_COLORS}")';
@@ -55,8 +58,8 @@ zle-line-init() { zle -K viins; _set_beam_cursor }
 # aliases
 alias ls='exa --long --git'
 alias ll="ls -la"
-alias grep='grep --color=auto'
-alias diff='diff --color=auto'
+alias grep="grep --color=always"
+alias diff="diff --color=always"
 alias define='wkdict'
 alias pushall='git remote | xargs -L1 -P 4 git push --all'
 alias pushalltags='git remote | xargs -L1 -P 4 git push --tags'
