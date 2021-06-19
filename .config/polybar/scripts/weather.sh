@@ -26,4 +26,3 @@ case $icons in
 esac
 
 echo $icon\  $weather, $temp"°F"
-sleep 120

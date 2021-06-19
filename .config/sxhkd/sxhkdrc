@@ -20,7 +20,7 @@ super + w
 	firefox
 
 # monitorselect
-alt + grave
+super + d
 	displayselect
 
 # workspace select

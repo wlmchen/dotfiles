@@ -27,7 +27,7 @@ au BufRead,BufNewFile *.todo set filetype=todo
 
 autocmd vimenter * ++nested colorscheme gruvbox-material
 " let g:airline_theme='base16_gruvbox_dark_hard'
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 let g:gitgutter_set_sign_backgrounds = 1
 
 filetype plugin indent on

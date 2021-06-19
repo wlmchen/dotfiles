@@ -96,6 +96,10 @@ alias nf="neofetch"
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias delpycache='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
 
+compile() {
+	echo $1 | entr -c sh -c "cc -Wall $1 && ./a.out"
+}
+
 # open files with vim
 #alias -s {md,py}=nvim
 
