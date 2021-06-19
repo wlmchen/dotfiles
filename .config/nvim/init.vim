@@ -7,24 +7,34 @@ endif
 
 call plug#begin()
 Plug 'vim-airline/vim-airline'
+Plug 'junegunn/goyo.vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'ap/vim-css-color'
 call plug#end()
 
 let g:NERDTreeWinSize=25
 let NERDTreeMinimalUI=1
 
+source ~/.config/nvim/comments.vim
+
+map <C-a> :call Comment()<CR>
+map <C-b> :call Uncomment()<CR>
+map \--# :call UncommentBlock()<CR>
+
 au BufRead,BufNewFile *.todo set filetype=todo
 
+au BufRead,BufNewFile *.md setlocal spell! spelllang=en_us | syntax sync fromstart
 " map caps to esc
 "au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 "au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
-autocmd vimenter * ++nested colorscheme gruvbox
+autocmd vimenter * ++nested colorscheme gruvbox-material
 " let g:airline_theme='base16_gruvbox_dark_hard'
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 let g:gitgutter_set_sign_backgrounds = 1
 
 filetype plugin indent on
@@ -71,13 +81,14 @@ set termguicolors
 nnoremap j gj
 nnoremap k gk
 
-set number relativenumber
-
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
+set number
+"set number relativenumber
+"
+"augroup numbertoggle
+"  autocmd!
+"  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+"augroup END
 
 set linebreak
 set clipboard=unnamedplus

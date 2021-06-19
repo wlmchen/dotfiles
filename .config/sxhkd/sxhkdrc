@@ -2,6 +2,13 @@
 # wm independent hotkeys
 #
 
+# lecture notes and shit
+alt + s
+    /home/fildo/Documents/notes/scripts/edit_note.sh
+
+alt + c
+    /home/fildo/Documents/notes/scripts/view_notes.sh
+
 super + shift + y
 	dmenyt
 

@@ -80,6 +80,8 @@ alias h="history | cut -c 8- | sort | uniq | fzf | tr '\\n' ' ' | xclip -selecti
 alias nf="neofetch"
 alias config='/usr/bin/git --git-dir=$HOME/repos/dots/ --work-tree=$HOME' 
 
+alias notepic="cd ~/Documents/notes/current_course/notes/pix"
+
 export EDITOR=nvim
 export TERMINAL=st
 export BROWSER=firefox
@@ -93,6 +95,19 @@ export LESS_TERMCAP_se="$(printf '%b' '[0m')"
 export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 
+
+
+function cd() {
+  if [[ -d ./venv ]] ; then
+    deactivate
+  fi
+
+  builtin cd $1
+
+  if [[ -d ./venv ]] ; then
+    . ./venv/bin/activate
+  fi
+}
 
 # source pluginz
 for plugin in $(find ~/.config/zsh/plugins -name '*.plugin.zsh'); do

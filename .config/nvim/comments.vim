@@ -56,4 +56,3 @@ function! UncommentBlock()
     endif
   endif
 endfunction
-

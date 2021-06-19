@@ -1,0 +1,56 @@
+[connection]
+account=fildo
+
+carbons=true
+
+[ui]
+splash=true
+wrap=true
+wins.autotidy=true
+time.statusbar=%H:%M:%S
+resource.title=true
+resource.message=true
+statuses.chat=all
+statuses.muc=all
+occupants=true
+occupants.size=15
+roster=true
+roster.offline=true
+roster.resource=false
+roster.empty=true
+roster.by=presence
+roster.size=25
+privileges=true
+presence=true
+intype=true
+enc.warn=true
+occupants.jid=false
+
+time.console=%d-%m-%y %H:%M
+time.chat=%d-%m-%y %H:%M
+time.muc=%d-%m-%y %H:%M
+time.config=%d-%m-%y %H:%M
+time.private=%d-%m-%y %H:%M
+time.xmlconsole=%d-%m-%y %H:%M
+
+history=true
+
+statusbar.show.number=true
+statusbar.show.name=true
+statusbar.show.read=true
+
+[otr]
+otr.char=@
+
+[omemo]
+omemo.char=%
+
+[alias]
+naptime=/status set away
+
+q=/quit
+j=/join
+
+[logging]
+chlog=true
+rotate=true
