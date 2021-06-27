@@ -1,0 +1,41 @@
+"query:World News :tags # \"world\""
+https://news.un.org/feed/subscribe/en/news/all/rss.xml "~· United Nations" "world"
+http://rss.cnn.com/rss/cnn_topstories.rss "~· CNN" "world"
+http://feeds.bbci.co.uk/news/world/rss.xml "~· BBC" "world"
+https://rss.nytimes.com/services/xml/rss/nyt/World.xml "~· New York Times" "world"
+http://feeds.washingtonpost.com/rss/world "~· Washington Post" "world"
+
+"query:Local News :tags # \"news\""
+https://vox.com/rss/index.xml "~· Vox" "news"
+
+"query:Tech News :tags # \"tech\""
+https://www.wired.com/feed "~· WIRED" "tech"
+https://www.engadget.com/rss.xml "~· Engadget" "tech"
+http://feeds.arstechnica.com/arstechnica/index/ "~· Ars Technica" "tech"
+http://rss.slashdot.org/Slashdot/slashdotMain "~· Slashdot" "tech"
+https://gizmodo.com/rss "~· Gizmodo" "tech"
+
+"query:Linux News :tags # \"nix\""
+https://lwn.net/headlines/rss "~· LWN.net" "nix"
+
+"query:Subreddits :tags # \"reddit\""
+https://www.reddit.com/r/linux/.rss?sort=hot "~· r/linux" "reddit"
+https://www.reddit.com/r/archlinux/.rss "~· r/archlinux" "reddit"
+
+"query:Distro News :tags # \"distro\""
+https://www.kernel.org/feeds/all.atom.xml "~· kernel.org" "distro" 
+https://www.archlinux.org/feeds/packages/x86_64/ "~· Arch Packages" "distro"
+https://archlinux.org/feeds/news/ "~· Arch News"
+
+"query:YouTube :tags #\"yt\""
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~· Luke Smith" "yt"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "~· Mental Outlaw" "yt"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCNIuvl7V8zACPpTmmNIqP2A "~· OverSimplified" "yt"
+
+"query:Other :tags # \"other\""
+https://parabolas.xyz/blog/atom.xml
+https://stallman.org/rss/rss.xml
+https://notrelated.xyz/rss
+https://lukesmith.xyz/rss.xml
+https://pirate-haven.github.io/feed.xml
+https://based.cooking/atom.xml

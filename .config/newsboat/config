@@ -1,0 +1,54 @@
+# gruvbox colors
+color article                              color223 color236
+color background                           color100 color236
+color info                                 color142 color235
+color listfocus                            color214 color239
+color listfocus_unread                     color214 color96
+color listnormal                           color246 color237
+color listnormal_unread                    color175 color237
+highlight article "^Feed:.*"               color175 color237
+highlight article "^Title:.*"              color214 color237 bold
+highlight article "^Author:.*"             color167 color237
+highlight article "^Link:.*"               color109 color237
+highlight article "^Date:.*"               color142 color237
+highlight article "\\[[0-9]\\+\\]"         color208 color237 bold
+highlight article "\\[[^0-9].*[0-9]\\+\\]" color167 color237 bold
+
+# youtube
+macro y set browser "/usr/bin/mpv %u"; open-in-browser ; set browser "/usr/local/bin/w3m %u"
+
+# use tor
+use-proxy yes
+proxy-type socks5
+proxy localhost:9050
+
+auto-reload yes
+reload-threads 50
+
+# vim keys
+unbind-key h
+unbind-key j
+unbind-key k
+unbind-key l
+
+bind-key h quit
+bind-key j down
+bind-key k up
+bind-key l open
+
+
+#feedlist-format "%3i  %t (%c)"
+feedlist-format "  %t (%c)"
+
+highlight feedlist "(World News|Local News)" yellow color237
+highlight feedlist "(Tech News|Linux News|Distro News|Subreddits)" green color237
+highlight feedlist "(YouTube)" blue color237
+
+articlelist-format "%3i  %D  %t %T"
+#highlight-article "age > 5" green black dim
+highlight article "^(Feed|Title|Author|Link|Date):.*" blue black
+highlight article "\\[[0-9][0-9]*\\]" green black
+highlight article "\\[image [0-9][0-9]*\\]" yellow black dim
+
+wrap-scroll no
+show-title-bar no

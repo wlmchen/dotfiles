@@ -79,6 +79,11 @@ alias py="python"
 alias h="history | cut -c 8- | sort | uniq | fzf | tr '\\n' ' ' | xclip -selection c"
 alias nf="neofetch"
 alias config='/usr/bin/git --git-dir=$HOME/repos/dots/ --work-tree=$HOME' 
+alias delpycache='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
+
+compile() {
+	echo $1 | entr -c sh -c "cc -Wall $1 && ./a.out"
+}
 
 alias notepic="cd ~/Documents/notes/current_course/notes/pix"
 

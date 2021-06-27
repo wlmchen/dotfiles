@@ -7,35 +7,30 @@ endif
 
 call plug#begin()
 Plug 'vim-airline/vim-airline'
-Plug 'junegunn/goyo.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'java', 'vim', 'c']}
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
-Plug 'dhruvasagar/vim-table-mode'
 Plug 'ap/vim-css-color'
+Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 let g:NERDTreeWinSize=25
 let NERDTreeMinimalUI=1
 
-source ~/.config/nvim/comments.vim
 
-map <C-a> :call Comment()<CR>
-map <C-b> :call Uncomment()<CR>
-map \--# :call UncommentBlock()<CR>
 
 au BufRead,BufNewFile *.todo set filetype=todo
 
-au BufRead,BufNewFile *.md setlocal spell! spelllang=en_us | syntax sync fromstart
 " map caps to esc
 "au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 "au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
 autocmd vimenter * ++nested colorscheme gruvbox-material
 " let g:airline_theme='base16_gruvbox_dark_hard'
-"let g:airline#extensions#tabline#enabled = 1
-let g:gitgutter_set_sign_backgrounds = 1
+let g:airline#extensions#tabline#enabled = 1
 
 filetype plugin indent on
 
@@ -51,11 +46,11 @@ set tabstop=4
 " when indenting with '>', use 4 spaces width
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
-set expandtab
+set noexpandtab
 
 augroup restore_cursor_shape
-  autocmd!
-  au VimLeave * set guicursor=a:ver10-blinkoff0
+	autocmd!
+	au VimLeave * set guicursor=a:ver10-blinkoff0
 augroup END
 
 map <leader>t :NERDTreeToggle<CR>
@@ -82,12 +77,11 @@ nnoremap j gj
 nnoremap k gk
 
 set number
-"set number relativenumber
-"
+
 "augroup numbertoggle
-"  autocmd!
-"  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-"  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+"	autocmd!
+"	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 "augroup END
 
 set linebreak
@@ -97,7 +91,7 @@ set clipboard=unnamedplus
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
 
 " unicode symbols
@@ -122,3 +116,32 @@ let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
+
+source ~/.config/nvim/comments.vim
+map <C-a> :call Comment()<CR>
+map <C-b> :call Uncomment()<CR>
+map \--# :call UncommentBlock()<CR>
+
+
+" coc
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+	set signcolumn=number
+else
+	set signcolumn=yes
+endif
+
+
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+au FileType vim,java,c,cpp inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() :"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+au VimLeave *.java !rm *.class
