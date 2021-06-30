@@ -7,6 +7,7 @@ endif
 
 call plug#begin()
 Plug 'vim-airline/vim-airline'
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'java', 'vim', 'c']}
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
@@ -20,7 +21,7 @@ call plug#end()
 let g:NERDTreeWinSize=25
 let NERDTreeMinimalUI=1
 
-
+let g:table_mode_corner='|'
 
 au BufRead,BufNewFile *.todo set filetype=todo
 
@@ -40,6 +41,8 @@ set smartcase
 set title
 
 syntax on
+
+au BufRead,BufNewFile *.md setlocal spell! spelllang=en_us | syntax sync fromstart
 
 " show existing tab with 4 spaces width
 set tabstop=4
