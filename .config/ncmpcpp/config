@@ -315,7 +315,8 @@ song_status_format = "{{%a - }{%t$/b}}|{$b%f$/b}"
 ##
 #
 #song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
-song_columns_list_format = "  (20)[blue]{a} (5)[green]{t}(8f) [magenta]{l}";
+song_columns_list_format = (40)[blue]{a} (50)[green]{t} (7f)[magenta]{lr}
+#song_columns_list_format = "  (20)[blue]{a} (5)[green]{t} (8f)[magenta]{l}"
 #
 ##### various settings #####
 #
@@ -364,7 +365,7 @@ song_columns_list_format = "  (20)[blue]{a} (5)[green]{t}(8f) [magenta]{l}";
 #
 #autocenter_mode = no
 #
-#centered_cursor = no
+centered_cursor = yes
 #
 ##
 ## Note: You can specify third character which will be used to build 'empty'
@@ -396,7 +397,7 @@ progressbar_look = ─╼
 #
 #default_tag_editor_pattern = %n - %t
 #
-header_visibility = yes
+header_visibility = no
 #
 statusbar_visibility = yes
 #
