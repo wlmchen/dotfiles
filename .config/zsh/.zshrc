@@ -1,3 +1,5 @@
+[ ! -s ~/.config/mpd/pid ] && mpd
+
 HISTFILE=~/.local/share/history
 HISTSIZE=1000000
 SAVEHIST=1000000

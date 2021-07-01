@@ -1,1 +1,4 @@
 .zcompdump
+database
+pid
+error.log
