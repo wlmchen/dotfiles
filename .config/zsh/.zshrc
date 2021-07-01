@@ -76,7 +76,7 @@ alias watchgenlop='watch -cn 10 genlop -ci'
 alias srcinf='makepkg --printsrcinfo > .SRCINFO'
 alias sysus="systemctl suspend"
 alias py="python"
-alias h="history | cut -c 8- | sort | uniq | fzf | tr '\\n' ' ' | xclip -selection c"
+alias h="history 0| cut -c 8- | sort | uniq | fzf | tr '\\n' ' ' | xclip -selection c"
 alias nf="neofetch"
 alias config='/usr/bin/git --git-dir=$HOME/repos/dots/ --work-tree=$HOME' 
 alias delpycache='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
