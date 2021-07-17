@@ -191,6 +191,17 @@ XF86AudioMute
 XF86AudioMicMute
 	pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
+# mpd
+
+XF86AudioPlay
+	mpc toggle
+
+XF86AudioPrev
+	mpc prev
+
+XF86AudioNext
+	mpc next
+
 # brightness keys
 XF86MonBrightnessUp
 	light -A 5

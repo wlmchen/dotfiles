@@ -7,7 +7,7 @@ endif
 
 call plug#begin()
 Plug 'vim-airline/vim-airline'
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'java', 'vim', 'c']}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': ['json', 'java', 'vim', 'c', 'cpp']}
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 Plug 'morhetz/gruvbox'

@@ -62,7 +62,7 @@ font-1 = Hack Nerd Font:size=9;2
 font-2 = Iosevka Nerd Font:medium:size=9:antialias=true;2
 
 ; Add module mpd for artist - title info
-modules-left = launcher bspwm 
+modules-left = launcher bspwm mpd
 modules-center = title
 modules-right = weather pulseaudio temperature battery memory cpu system-cpu-frequency date
 
