@@ -9,6 +9,9 @@ xsetroot -cursor_name left_ptr &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 # gentoo
 /usr/libexec/polkit-gnome-authentication-agent-1 &
+# debian
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
 xmodmap -e "keysym Alt_R = Multi_key" &
 # xss-lock -- /usr/bin/betterlockscreen -l blur &
 st -c scratchterm &
@@ -24,7 +27,7 @@ wmname LG3D
 export PIDSWALLOW_SWALLOW_COMMAND='bspc node $pwid --flag hidden=on'
 export PIDSWALLOW_VOMIT_COMMAND='bspc node $pwid --flag hidden=off'
 export PIDSWALLOW_PREGLUE_HOOK='bspc query -N -n $pwid.floating >/dev/null && bspc node $cwid --state floating'
-pgrep -fl 'pidswallow -gl' || pidswallow -gl &
+# pgrep -fl 'pidswallow -gl' || pidswallow -gl &
 
 
 pgrep -x sxhkd > /dev/null || sxhkd &

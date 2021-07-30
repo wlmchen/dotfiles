@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 city="Dublin"
 api_key="5f90d4185ada4639c1be1142333bf06e"
 lang="en"
@@ -26,4 +26,3 @@ case $icons in
 esac
 
 echo $icon\  $weather, $temp"°F"
-sleep 120
