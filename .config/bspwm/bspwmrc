@@ -9,6 +9,9 @@ xsetroot -cursor_name left_ptr &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 # gentoo
 /usr/libexec/polkit-gnome-authentication-agent-1 &
+# debian
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
 xmodmap -e "keysym Alt_R = Multi_key" &
 # xss-lock -- /usr/bin/betterlockscreen -l blur &
 st -c scratchterm &

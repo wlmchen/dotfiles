@@ -71,8 +71,8 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # aliases
 alias ls='exa --long --git'
 alias ll="ls -la"
-alias grep='grep --color=auto'
-alias diff='diff --color=auto'
+alias grep="grep --color=always"
+alias diff="diff --color=always"
 alias define='wkdict'
 alias pushall='git remote | xargs -L1 -P 4 git push --all'
 alias pushalltags='git remote | xargs -L1 -P 4 git push --tags'
@@ -89,13 +89,27 @@ alias watchgenlop='watch -cn 10 genlop -ci'
 alias srcinf='makepkg --printsrcinfo > .SRCINFO'
 alias sysus="systemctl suspend"
 alias py="python"
-alias h="history | cut -c 8- | sort | uniq | fzf | tr '\\n' ' ' | xclip -selection c"
+alias h="history 0| cut -c 8- | sort | uniq | fzf | tr '\\n' ' ' | xclip -selection c"
 alias nf="neofetch"
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+
+alias config='/usr/bin/git --git-dir=$HOME/repos/dots/ --work-tree=$HOME' 
 alias delpycache='find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf'
 
 compile() {
 	echo $1 | entr -c sh -c "cc -Wall $1 && ./a.out"
+}
+
+
+function cd() {
+  if [[ -d ./venv ]] ; then
+    deactivate
+  fi
+
+  builtin cd $1
+
+  if [[ -d ./venv ]] ; then
+    . ./venv/bin/activate
+  fi
 }
 
 # open files with vim
