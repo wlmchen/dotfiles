@@ -21,10 +21,10 @@ bspc rule -a scratchterm sticky=on state=floating hidden=on center=true
 
 wmname LG3D
 
-export PIDSWALLOW_SWALLOW_COMMAND='bspc node $pwid --flag hidden=on'
-export PIDSWALLOW_VOMIT_COMMAND='bspc node $pwid --flag hidden=off'
-export PIDSWALLOW_PREGLUE_HOOK='bspc query -N -n $pwid.floating >/dev/null && bspc node $cwid --state floating'
-pgrep -fl 'pidswallow -gl' || pidswallow -gl &
+#export PIDSWALLOW_SWALLOW_COMMAND='bspc node $pwid --flag hidden=on'
+#export PIDSWALLOW_VOMIT_COMMAND='bspc node $pwid --flag hidden=off'
+#export PIDSWALLOW_PREGLUE_HOOK='bspc query -N -n $pwid.floating >/dev/null && bspc node $cwid --state floating'
+#pgrep -fl 'pidswallow -gl' || pidswallow -gl &
 
 
 pgrep -x sxhkd > /dev/null || sxhkd &

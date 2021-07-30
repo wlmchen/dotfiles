@@ -1,0 +1,43 @@
+#!/bin/zsh
+
+export PATH="$PATH:/home/fildo/.local/bin:/home/fildo/bin"
+
+
+export EDITOR="nvim"
+export TERMINAL="st"
+export BROWSER="firefox"
+
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+
+export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
+export WEECHAT_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/weechat"
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
+export GEM_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"/gem
+export GEM_SPEC_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}"/gem
+export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-2.0/gtkrc-2.0"
+export NVM_DIR="${XDG_DATA_HOME:-$HOME/.local/share}"/nvm
+export PYLINTHOME="${XDG_CACHE_HOME:-$HOME/.cache}"/pylint
+export SSB_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"/zoom
+export NODE_REPL_HISTORY="${XDG_DATA_HOME:-$HOME/.local/share}"/node_repl_history
+export PARALLEL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"/parallel
+export LESSHISTFILE=-
+
+export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
+_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true" # java font antialiasing
+_JAVA_OPTIONS+=" -Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java"
+export _JAVA_OPTIONS
+
+# colorful man pages
+export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
+export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
+export LESS_TERMCAP_me="$(printf '%b' '[0m')"
+export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
+export LESS_TERMCAP_se="$(printf '%b' '[0m')"
+export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
+export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
+

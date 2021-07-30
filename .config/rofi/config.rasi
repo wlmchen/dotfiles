@@ -8,7 +8,7 @@ configuration {
 	disable-history: true;
 	sidebar-mode: false;
 	tokenize: true;
-  	display-drun:"apps";
+  	display-drun:"";
 	m: "-5";
 	line-margin: 2;
 	line-padding: 1;
@@ -20,6 +20,8 @@ configuration {
 }
 
 * {
+	highlight: bold italic;
+
 	bg: #282828;
 	fg: #ebdbb2;
 	accent: #b877db;
@@ -29,21 +31,22 @@ configuration {
 }
 
 window {
-	padding: 10px 25px 25px 25px; /* top, right, bottom, left*/
+/* 	padding: 10px 25px 25px 25px; /* top, right, bottom, left*/ */
+	padding: 10px;
 	/*padding:25px;*/
 	background-color: @bg;
   	border-color: @fg;
   	border: 1;
-	border-radius: 0px;
+	border-radius: 5px;
 }
 
 prompt, entry {
 	text-color: @fg;
-	padding: 10px;
+	padding: 8px;
 }
 
 element {
-	border-radius: 0px;
+	border-radius: 5px;
 	padding: 3px;
 }
 
